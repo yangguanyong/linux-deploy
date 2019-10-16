@@ -8,6 +8,17 @@
   </div>
 </template>
 
+<script>
+const axios = require('axios');
+export default {
+  mounted () {
+    axios.get('http://106.54.32.13:3000').then(function (response) {
+      console.log(response)
+    })
+  }
+}
+</script>
+
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
