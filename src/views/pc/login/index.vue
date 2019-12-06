@@ -26,13 +26,14 @@ const rules = {
     { required: true, message: '请填写密码', trigger: 'change' }
   ]
 }
+import { login } from '@/api/user'
 export default {
   data () {
     return {
       formData: {
         account: '',
         password: ''
-      },
+      }, 
       rules
     }
   },
@@ -40,7 +41,9 @@ export default {
     submitHandle () {
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
-          console.log('通过')
+          login().then(res => {
+            const token = res.response
+          })
         } else {
         }
       })
