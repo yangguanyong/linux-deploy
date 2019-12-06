@@ -42,7 +42,9 @@ export default {
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
           login().then(res => {
+            console.log('res', res)
             const token = res.response
+            this.$store.dispatch('setUserInfo', token)
           })
         } else {
         }

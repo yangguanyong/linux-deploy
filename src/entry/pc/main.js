@@ -8,7 +8,10 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
+import store from '@/store/index'
+
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
