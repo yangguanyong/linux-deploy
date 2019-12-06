@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
+    "element-ui": "^2.13.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3"
   },
@@ -23,6 +24,9 @@
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
+    "extends": [
+      "./src/entry/pc/main.js"
+    ],
     "root": true,
     "env": {
       "node": true
