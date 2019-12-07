@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>登录页面</h2>
+    <h2>注册页面</h2>
     <div>
       <el-form :model="formData" :rules="rules" ref="ruleForm">
         <el-form-item label="账号" prop="account">
@@ -9,12 +9,17 @@
         <el-form-item label="密码" prop="password">
           <el-input v-model="formData.password"></el-input>
         </el-form-item>
+        <el-form-item label="重复密码" prop="repeatPassword">
+          <el-input v-model="formData.repeatPassword"></el-input>
+        </el-form-item>
       </el-form>
     </div>
     <el-button @click="submitHandle">
-      登录
+      注册
     </el-button>
-    <el-button @click="register">注册页面</el-button>
+    <el-button @click="goLogin">
+      登录页面
+    </el-button>
   </div>
 </template>
 
@@ -25,15 +30,19 @@ const rules = {
   ],
   password: [
     { required: true, message: '请填写密码', trigger: 'change' }
+  ],
+  repeatPassword: [
+    { required: true, message: '请填写密码', trigger: 'change' }
   ]
 }
-import { login } from '@/api/user'
+import { register } from '@/api/user'
 export default {
   data () {
     return {
       formData: {
         account: '',
-        password: ''
+        password: '',
+        repeatPassword: ''
       }, 
       rules
     }
@@ -42,21 +51,24 @@ export default {
     submitHandle () {
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
-          login().then(res => {
-            const token = res.response
-            this.$store.dispatch('setToken', token).then(res => {
+          if (this.formData.password !== this.formData.repeatPassword) {
+            this.$message('密码必须一致')
+            return
+          } else {
+            register(this.formData).then(r => {
+              this.$message('注册成功')
               this.$router.push({
-                name: 'Home'
+                name: 'Login'
               })
             })
-          })
+          }
         } else {
         }
       })
     },
-    register() {
+    goLogin() {
       this.$router.push({
-        name: 'Register'
+        name: 'Login'
       })
     }
   }

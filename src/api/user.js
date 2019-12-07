@@ -31,3 +31,11 @@ export function testOvertimeLogout(data) { // 测试超时退出
     data
   })
 }
+
+export function register(data) {
+  return request({
+    url: '/api/user/register',
+    method: 'get',
+    data
+  })
+}

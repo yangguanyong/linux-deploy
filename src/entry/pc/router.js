@@ -8,6 +8,10 @@ const router = new Router({
   base: 'pc',
   routes: [
     {
+      path: '/',
+      redirect: '/home'
+    },
+    {
       path: '/home',
       name: 'Home',
       component: () => import('./../../views/pc/home-page')
@@ -16,6 +20,11 @@ const router = new Router({
       path: '/login',
       name: 'Login',
       component: () => import('./../../views/pc/login')
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: () => import('@/views/pc/register')
     }
   ]
 })
