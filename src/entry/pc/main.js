@@ -10,7 +10,7 @@ Vue.use(components)
 
 Vue.config.productionTip = false
 
-import store from '@/store/index'
+import store from '@/store/pc/index'
 require('./permission')
 require('./env')
 
