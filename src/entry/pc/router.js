@@ -19,7 +19,8 @@ const userRouter = [
 const albumRouter = [
   {
     path: '/',
-    redirect: '/album'
+    redirect: '/album',
+    name: 'Home'
   },
   {
     path: '/album',
@@ -38,10 +39,26 @@ const albumRouter = [
   }
 ]
 
+const systemRouter = [
+  {
+    path: '/system',
+    name: 'System',
+    component: () => import('@/views/pc/system/index')
+  }
+]
+
+const errorRouter = [
+  {
+    path: '/noPermission',
+    name: 'noPermission',
+    component: () => import('@/views/pc/error/no-permission')
+  }
+]
+
 const router = new Router({
   mode: 'history',
   base: 'pc',
-  routes: [].concat(userRouter).concat(albumRouter)
+  routes: [].concat(userRouter).concat(albumRouter).concat(systemRouter).concat(errorRouter)
 })
 
 export default router

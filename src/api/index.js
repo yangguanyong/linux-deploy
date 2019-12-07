@@ -14,6 +14,11 @@ axios.interceptors.response.use((response) => { // 拦截res
   if (response.data.code === 408) { // 登录超时
     const $store = window.$env.store
     $store.dispatch('logout')
+  } else if (response.data.code === 403) { // 没有权限
+    const $router = window.$env.router
+    $router.push({
+      name: 'noPermission'
+    })
   } else {
     return response.data // 只返回data
   }

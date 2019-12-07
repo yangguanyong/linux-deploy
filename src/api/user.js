@@ -39,3 +39,11 @@ export function register(data) {
     data
   })
 }
+
+export function testNoPermisstion(data) {
+  return request({
+    url: '/api/user/testNoPermisstion',
+    method: 'get',
+    data
+  })
+}
