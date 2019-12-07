@@ -10,7 +10,7 @@ router.beforeEach((to, from, next) => {
     const token = getToken()
     if (token) {
       const $store = window.$env.store
-      if ($store.state.userInfo) {
+      if ($store.state.user.userInfo) {
         next()
       } else {
         $store.dispatch('setUserInfo', token).then(r => {

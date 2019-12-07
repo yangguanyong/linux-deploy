@@ -46,7 +46,7 @@ export default {
             const token = res.response
             this.$store.dispatch('setToken', token).then(res => {
               this.$router.push({
-                name: 'Home'
+                name: 'Album'
               })
             })
           })
