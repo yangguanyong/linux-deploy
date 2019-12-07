@@ -3,12 +3,12 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: 'pc',
   routes: [
     {
-      path: '/',
+      path: '/home',
       name: 'Home',
       component: () => import('./../../views/pc/home-page')
     },
@@ -19,3 +19,5 @@ export default new Router({
     }
   ]
 })
+
+export default router

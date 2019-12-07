@@ -9,6 +9,8 @@ Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 import store from '@/store/index'
+require('./permission')
+require('./env')
 
 new Vue({
   router,
