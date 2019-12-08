@@ -1,5 +1,5 @@
 <template>
   <LayoutSystem>
-    <div>system</div>
+    <router-view></router-view>
   </LayoutSystem>
 </template>

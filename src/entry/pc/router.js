@@ -43,7 +43,20 @@ const systemRouter = [
   {
     path: '/system',
     name: 'System',
-    component: () => import('@/views/pc/system/index')
+    component: () => import('@/views/pc/system/index'),
+    redirect: { name: 'SystemUser' },
+    children: [
+      {
+        path: 'user',
+        name: 'SystemUser',
+        component: () => import('@/views/pc/system/user')
+      },
+      {
+        path: 'photo',
+        name: 'SystemPhoto',
+        component: () => import('@/views/pc/system/photo')
+      }
+    ]
   }
 ]
 
