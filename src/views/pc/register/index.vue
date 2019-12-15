@@ -6,6 +6,9 @@
         <el-form-item label="账号" prop="account">
           <el-input v-model="formData.account"></el-input>
         </el-form-item>
+        <el-form-item label="用户名" prop="username">
+          <el-input v-model="formData.username"></el-input>
+        </el-form-item>
         <el-form-item label="密码" prop="password">
           <el-input v-model="formData.password"></el-input>
         </el-form-item>
@@ -28,6 +31,9 @@ const rules = {
   account: [
     { required: true, message: '请填写账号', trigger: 'change' }
   ],
+  username: [
+    { required: true, message: '请填写用户名', trigger: 'change' }
+  ],
   password: [
     { required: true, message: '请填写密码', trigger: 'change' }
   ],
@@ -41,6 +47,7 @@ export default {
     return {
       formData: {
         account: '',
+        username: '',
         password: '',
         repeatPassword: ''
       }, 

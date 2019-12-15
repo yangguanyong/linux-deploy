@@ -1,10 +1,10 @@
 import request from './index'
 
-export function login(data) { // 登录
+export function login(params) { // 登录
   return request({
     url: '/api/user/login',
     method: 'get',
-    data
+    params
   })
 }
 
@@ -35,7 +35,7 @@ export function testOvertimeLogout(data) { // 测试超时退出
 export function register(data) {
   return request({
     url: '/api/user/register',
-    method: 'get',
+    method: 'post',
     data
   })
 }

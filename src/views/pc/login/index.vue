@@ -42,13 +42,13 @@ export default {
     submitHandle () {
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
-          login().then(res => {
-            const token = res.response
-            this.$store.dispatch('setToken', token).then(res => {
-              this.$router.push({
-                name: 'Album'
-              })
-            })
+          login(this.formData).then(res => {
+            // const token = res.response
+            // this.$store.dispatch('setToken', token).then(res => {
+            //   this.$router.push({
+            //     name: 'Album'
+            //   })
+            // })
           })
         } else {
         }

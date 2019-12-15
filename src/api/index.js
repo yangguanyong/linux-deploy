@@ -27,10 +27,12 @@ axios.interceptors.response.use((response) => { // 拦截res
 })
 
 const request = function (config) {
-  const { method, url } = config
+  const { method, url, params, data } = config
   return axios({
     method,
-    url
+    url,
+    params,
+    data
   })
 }
 

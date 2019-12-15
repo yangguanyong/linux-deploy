@@ -8,6 +8,10 @@ export default new Router({
   base: 'mobile',
   routes: [
     {
+      path: '/',
+      redirect: '/home'
+    },
+    {
       path: '/home',
       name: 'home',
       component: () => import('./../../views/mobile/home-page')
