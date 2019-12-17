@@ -25,10 +25,14 @@ const store = {
         commit('SET_USERINFO', userInfo)
       })
     },
-    logout () {
+    logout ({ commit }) {
       logout().then(r => {
         removeToken()
-        window.location.reload() // 最简单直接的退出方法
+        commit('SET_TOKEN', '')
+        commit('SET_USERINFO', null)
+        window.$env.router.push({
+          name: 'Login'
+        })
       })
     }
   }

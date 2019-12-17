@@ -15,7 +15,11 @@ export default {
   name: 'Layout',
   computed: {
     isAdmin() {
-      return this.$store.state.user.userInfo.type === 0 // 管理员
+      if (this.$store.state.user.userInfo) {
+        return this.$store.state.user.userInfo.type === 0 // 管理员
+      } else {
+        return false
+      }
     }
   },
   methods: {

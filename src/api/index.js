@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { pcTokenName, getToken } from '@/util/token'
+import { Message } from 'element-ui'
 
 axios.interceptors.request.use(function (config) { // 拦截req
   if (getToken()) {
@@ -12,15 +13,22 @@ axios.interceptors.request.use(function (config) { // 拦截req
 
 axios.interceptors.response.use((response) => { // 拦截res
   if (response.data.code === 408) { // 登录超时
+    Message('token过期，请重新登录')
     const $store = window.$env.store
     $store.dispatch('logout')
+    return Promise.reject(response.data)
   } else if (response.data.code === 403) { // 没有权限
     const $router = window.$env.router
     $router.push({
       name: 'noPermission'
     })
   } else {
-    return response.data // 只返回data
+    if (response.data.message === 'fail') {
+      Message(response.data.response)
+      return Promise.reject(response.data)
+    } else {
+      return response.data // 只返回data
+    }
   }
 }, (error) => {
   return Promise.reject(error)
