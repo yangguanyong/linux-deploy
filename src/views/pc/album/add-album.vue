@@ -48,7 +48,7 @@ export default {
         this.$router.push({
           name: 'AlbumADetail',
           query: {
-            albumId: r.response
+            albumId: r.response.id
           }
         })
       })

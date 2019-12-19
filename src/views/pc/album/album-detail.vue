@@ -1,13 +1,18 @@
 <template>
   <Layout>
     <div>相册详情</div>
+    <div>
+      <p>名称:{{ data.name }}</p>
+      <p>封面:{{ data.cover }}</p>
+      <p>照片数量:{{ data.photoList.length }}</p>
+    </div>
     <Upload
       postUrl="/api/upload/file"
       type="img">
       <span>上传照片</span>
     </Upload>
     <div>
-      <div v-for="(item, index) in list" :key="index">
+      <div v-for="(item, index) in data.photoList" :key="index">
         <img :src="item.url" alt="" class="photos-item">
         <span>日期：{{ item.date }}</span>
         <span>描述：{{ item.desc }}</span>
@@ -25,7 +30,7 @@ export default {
     const id = this.$route.query.albumId
     return {
       id,
-      list: []
+      data: null
     }
   },
   mounted() {
@@ -36,7 +41,7 @@ export default {
       getAlbumDetail({
         id: this.id
       }).then(r => {
-        this.list = r.response.photoList
+        this.data = r.response
       })
     },
     deleteHandle(item) {

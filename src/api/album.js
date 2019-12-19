@@ -4,26 +4,26 @@
 
 import request from './index'
 
-export function getAlbumList (data) {
+export function getAlbumList () {
   return request({
     url: '/api/album/getList',
-    method: 'get',
-    data
+    method: 'get'
   })
 }
 
 export function addAlbum(data) {
   return request({
     url: '/api/album/add',
-    method: 'post'
+    method: 'post',
+    data
   })
 }
 
-export function getAlbumDetail(data) {
+export function getAlbumDetail(params) {
   return request({
     url: '/api/album/getDetail',
     method: 'get',
-    data
+    params
   })
 }
 
