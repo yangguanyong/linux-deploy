@@ -36,6 +36,11 @@ const albumRouter = [
     path: '/album-detail',
     name: 'AlbumADetail',
     component: () => import('@/views/pc/album/album-detail')
+  },
+  {
+    path: '/upload-photo',
+    name: 'UploadPhotoRoute',
+    component: () => import('@/views/pc/album/upload-photo')
   }
 ]
 

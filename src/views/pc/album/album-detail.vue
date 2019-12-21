@@ -6,11 +6,8 @@
       <p>封面:{{ data.cover }}</p>
       <p>照片数量:{{ data.photoList.length }}</p>
     </div>
-    <Upload
-      postUrl="/api/upload/file"
-      type="img">
-      <span>上传照片</span>
-    </Upload>
+    <!-- <img src="http://192.168.1.103:3020/1.JPG" style="width: 100px;"> -->
+    <el-button @click="goUploadPhoto">上传照片</el-button>
     <div>
       <div v-for="(item, index) in data.photoList" :key="index">
         <img :src="item.url" alt="" class="photos-item">
@@ -30,7 +27,11 @@ export default {
     const id = this.$route.query.albumId
     return {
       id,
-      data: null
+      data: {
+        name: '',
+        cover: '',
+        photoList: []
+      }
     }
   },
   mounted() {
@@ -53,6 +54,15 @@ export default {
           message: '照片删除成功'
         })
         this.getAlbumDetail()
+      })
+    },
+    goUploadPhoto() {
+      this.$router.push({
+        name: 'UploadPhotoRoute',
+        query: {
+          albumId: this.id,
+          albumName: this.data.name
+        }
       })
     }
   }
