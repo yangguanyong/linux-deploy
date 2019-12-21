@@ -131,7 +131,7 @@ export default {
         if (resp.code && resp.code === 'error') {
           this.$emit('fail', resp)
         } else {
-          if (resp.code === 0) {
+          if (resp.code === 200) {
             this.$emit('success', resp)
           } else {
             this.$emit('fail', resp)
@@ -163,7 +163,7 @@ export default {
         var iframe = document.getElementById(this.idIframe)
         util.getFrameResponseIframeOnload(iframe, (status, resp) => {
           if (status === 'load') {
-            if (resp.code !== 0) {
+            if (resp.code !== 200) {
               this.$emit('fail', resp)
             } else {
               this.$emit('success', resp)
