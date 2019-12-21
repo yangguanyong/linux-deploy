@@ -74,7 +74,7 @@ const errorRouter = [
 ]
 
 const router = new Router({
-  mode: 'history',
+  mode: 'hash',
   base: 'pc',
   routes: [].concat(userRouter).concat(albumRouter).concat(systemRouter).concat(errorRouter)
 })
