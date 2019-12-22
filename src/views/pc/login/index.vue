@@ -44,11 +44,15 @@ export default {
         if (valid) {
           login(this.formData).then(res => {
             const token = res.response
-            this.$store.dispatch('setToken', token).then(res => {
-              this.$router.push({
-                name: 'Album'
+            if (token) {
+              this.$store.dispatch('setToken', token).then(res => {
+                this.$router.push({
+                  name: 'Album'
+                })
               })
-            })
+            } else {
+              this.$message('登录失败')
+            }
           })
         } else {
         }

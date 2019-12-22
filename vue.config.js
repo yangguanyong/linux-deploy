@@ -22,10 +22,10 @@ module.exports = {
       proxy: {
         '/api': {
           target: 'http://localhost:3020',
-          changOrigin: true,
-          pathRewrite: {
-            '^/api': ''
-          }
+          changOrigin: true
+          // pathRewrite: {
+          //   '^/api': ''
+          // }
         }
       }
     }
