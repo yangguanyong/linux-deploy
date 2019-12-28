@@ -1,5 +1,6 @@
 const path = require('path')
 module.exports = {
+  publicPath: "/", // 影响html中加载文件的目录
   pages: {
     pc: {
       entry: './src/entry/pc/main.js',
@@ -26,6 +27,13 @@ module.exports = {
           // pathRewrite: {
           //   '^/api': ''
           // }
+        },
+        '/static': {
+          target: 'http://localhost:3020',
+          changOrigin: true,
+          pathRewrite: {
+            '^/static': ''
+          }
         }
       }
     }
