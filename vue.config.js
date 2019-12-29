@@ -27,14 +27,14 @@ module.exports = {
           // pathRewrite: {
           //   '^/api': ''
           // }
-        },
-        '/static': {
-          target: 'http://localhost:3020',
-          changOrigin: true,
-          pathRewrite: {
-            '^/static': ''
-          }
         }
+        // '/static': {
+        //   target: 'http://localhost:3020',
+        //   changOrigin: true,
+        //   pathRewrite: {
+        //     '^/static': ''
+        //   }
+        // }
       }
     }
   }
