@@ -1,12 +1,22 @@
 <template>
   <Layout>
     <div>
-      <span>相册列表</span>
-      <el-button @click="addHandle">新增相册</el-button>
-      <div v-for="(item, index) in list" :key="index">
-        <span @click="goAlbumDetail(item)">{{ item.name }}</span>
-        <span @click="deleteHandle(item)">删除</span>
-      </div>
+      <el-row :gutter="20">
+        <el-col :span="6">
+          <div @click="addHandle" class="add-btn">
+            +
+          </div>
+        </el-col>
+        <el-col :span="6" v-for="(item, index) in list" :key="index">
+          <div class="album-item">
+            <div class="album-cover" @click="goAlbumDetail(item)"></div>
+            <div class="album-content">
+              <span>{{ item.name }}</span>
+              <i class="el-icon-delete icon-delete" @click="deleteHandle(item)"></i>
+            </div>
+          </div>
+        </el-col>
+      </el-row>
     </div>
   </Layout>
 </template>
@@ -59,3 +69,50 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+$itemHeight: 110px;
+.add-btn{
+  height: $itemHeight;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 2px dashed #e1e1e1;
+  box-sizing: border-box;
+  color: #e1e1e1;
+  font-size: 50px;
+  text-align: center;
+  line-height: $itemHeight;
+  cursor: pointer;
+}
+.album-item{
+  height: $itemHeight;
+  margin-bottom: 10px;
+  border: 1px dashed #e1e1e1;
+  position: relative;
+  &:hover .album-delete{
+    display: block;
+  }
+  .album-cover{
+    height: 60px;
+    background: #e1e1e1;
+    width: 90%;
+    margin: 10px auto;
+    border: 2px solid lightgrey;
+    cursor: pointer;
+  }
+  .album-content{
+    width: 90%;
+    margin: auto;
+    position: relative;
+    .icon-delete{
+      position: absolute;
+      right: 0px;
+      color: #e1e1e1;
+      cursor: pointer;
+      &:hover{
+        color: gray;
+      }
+    }
+  }
+}
+</style>

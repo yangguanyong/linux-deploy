@@ -1,46 +1,80 @@
 <template>
-  <div>
+  <div class="layout">
     <div class="layout-head">
-      <el-button @click="logout">退出</el-button>
-      <el-button @click="testOvertimeLogout">测试超时退出</el-button>
-      <el-button @click="goSystem" v-if="isAdmin">管理后台</el-button>
+      <span>Logo</span>
+      <el-dropdown class="username-wrap">
+        <span class="el-dropdown-link">
+          {{ userName }}
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item @click.native="logout">退出</el-dropdown-item>
+          <el-dropdown-item @click.native="testOvertimeLogout">测试超时退出</el-dropdown-item>
+          <el-dropdown-item @click.native="goSystem" v-if="isAdmin">管理后台</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
     </div>
-    <slot></slot>
+    <div class="layout-body">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
 <script>
-import { testOvertimeLogout } from '@/api/user'
+import { testOvertimeLogout } from "@/api/user";
 export default {
-  name: 'Layout',
+  name: "Layout",
   computed: {
     isAdmin() {
       if (this.$store.state.user.userInfo) {
-        return this.$store.state.user.userInfo.type === 0 // 管理员
+        return this.$store.state.user.userInfo.type === 0; // 管理员
       } else {
-        return false
+        return false;
       }
+    },
+    userName() {
+      return this.$store.state.user.userInfo.name || ""
     }
+  },
+  mounted() {
   },
   methods: {
     logout() {
-      this.$store.dispatch('logout')
+      this.$store.dispatch("logout");
     },
     testOvertimeLogout() {
-      testOvertimeLogout().then(r => {
-      })
+      testOvertimeLogout().then(r => {});
     },
     goSystem() {
       this.$router.push({
-        name: 'System'
-      })
+        name: "System"
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-.layout-head{
-  border-bottom: 1px solid #e1e1e1;
+@import "@/assets/var";
+.layout{
+  min-width: 800px;
+}
+.layout-head {
+  height: 40px;
+  line-height: 40px;
+  padding: 0px 20px;
+  background: $main;
+  color: white;
+}
+.username-wrap{
+  float: right;
+}
+.el-dropdown-link{
+  cursor: pointer;
+  color: white;
+}
+.layout-body{
+  width: 800px;
+  margin: auto;
+  margin-top: 10px;
 }
 </style>
