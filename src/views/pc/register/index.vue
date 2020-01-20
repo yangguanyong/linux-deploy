@@ -1,27 +1,26 @@
 <template>
-  <div>
-    <h2>注册页面</h2>
+  <div class="register-module">
     <div>
       <el-form :model="formData" :rules="rules" ref="ruleForm">
         <el-form-item label="账号" prop="account">
-          <el-input v-model="formData.account"></el-input>
+          <el-input v-model="formData.account" placeholder="请输入账号"></el-input>
         </el-form-item>
         <el-form-item label="用户名" prop="username">
-          <el-input v-model="formData.username"></el-input>
+          <el-input v-model="formData.username" placeholder="请输入用户名"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
-          <el-input v-model="formData.password"></el-input>
+          <el-input v-model="formData.password" placeholder="请输入密码"></el-input>
         </el-form-item>
         <el-form-item label="重复密码" prop="repeatPassword">
-          <el-input v-model="formData.repeatPassword"></el-input>
+          <el-input v-model="formData.repeatPassword" placeholder="请输入重复密码"></el-input>
         </el-form-item>
       </el-form>
     </div>
-    <el-button @click="submitHandle">
+    <el-button @click="submitHandle" class="register-btn" type="primary">
       注册
     </el-button>
     <el-button @click="goLogin">
-      登录页面
+      登录
     </el-button>
   </div>
 </template>
@@ -81,3 +80,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.register-module{
+  width: 400px;
+  margin: auto;
+  margin-top: 70px;
+}
+.register-btn{
+  width: 120px;
+}
+</style>

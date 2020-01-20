@@ -1,20 +1,21 @@
 <template>
-  <div>
-    <h2>登录页面</h2>
-    <div>
+  <div class="login-module">
+    <div class="content-wrap">
       <el-form :model="formData" :rules="rules" ref="ruleForm">
         <el-form-item label="账号" prop="account">
-          <el-input v-model="formData.account"></el-input>
+          <el-input v-model="formData.account" placeholder="请输入账号"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
-          <el-input v-model="formData.password"></el-input>
+          <el-input v-model="formData.password" placeholder="请输入密码"></el-input>
         </el-form-item>
       </el-form>
     </div>
-    <el-button @click="submitHandle">
-      登录
-    </el-button>
-    <el-button @click="register">注册页面</el-button>
+    <div class="btn-wrap">
+      <el-button @click="submitHandle" type="primary" class="login-button">
+        登录
+      </el-button>
+      <el-button @click="register">注册</el-button>
+    </div>
   </div>
 </template>
 
@@ -66,3 +67,20 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.login-module{
+  .content-wrap{
+    width: 400px;
+    margin: auto;
+    margin-top: 100px;
+  }
+  .btn-wrap{
+    width: 400px;
+    margin: auto;
+  }
+  .login-button{
+    width: 120px;
+  }
+}
+</style>
