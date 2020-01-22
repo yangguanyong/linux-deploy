@@ -57,7 +57,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 .cover{
   width: 100px;
   height: 100px;

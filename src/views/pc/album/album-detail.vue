@@ -79,8 +79,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-$headHeight: 30px;
+<style lang="stylus" scoped>
+$headHeight = 30px;
 .album-detail-head{
   height: $headHeight;
   background: #efefef;

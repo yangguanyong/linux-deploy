@@ -53,8 +53,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "@/assets/var";
+<style lang="stylus" scoped>
+@import "./../../assets/var";
 .layout{
   min-width: 800px;
 }

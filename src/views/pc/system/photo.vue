@@ -41,7 +41,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 .img-item{
   width: 320px;
   height: 180px;

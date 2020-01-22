@@ -81,7 +81,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 .register-module{
   width: 400px;
   margin: auto;

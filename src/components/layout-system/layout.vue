@@ -41,8 +41,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.layout-head{
+<style lang="stylus" scoped>
+.layout-head {
   border-bottom: 1px solid #e1e1e1;
 }
 </style>

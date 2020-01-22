@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 .login-module{
   .content-wrap{
     width: 400px;

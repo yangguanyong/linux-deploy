@@ -70,8 +70,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-$itemHeight: 110px;
+<style lang="stylus" scoped>
+$itemHeight = 110px;
 .add-btn{
   height: $itemHeight;
   margin-bottom: 10px;
