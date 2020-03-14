@@ -29,7 +29,7 @@ export default {
       changePhotoType({
         id: item.id,
         type: 2
-      }).then(r => {
+      }).then(() => {
         this.$message({
           type: 'success',
           message: '设置成功'

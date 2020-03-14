@@ -13,7 +13,7 @@ router.beforeEach((to, from, next) => {
       if ($store.state.user.userInfo) {
         next()
       } else {
-        $store.dispatch('setUserInfo', token).then(r => {
+        $store.dispatch('setUserInfo', token).then(() => {
           next()
         })
       }

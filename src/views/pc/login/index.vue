@@ -46,7 +46,7 @@ export default {
           login(this.formData).then(res => {
             const token = res.response
             if (token) {
-              this.$store.dispatch('setToken', token).then(res => {
+              this.$store.dispatch('setToken', token).then(() => {
                 this.$router.push({
                   name: 'Album'
                 })
@@ -55,7 +55,6 @@ export default {
               this.$message('登录失败')
             }
           })
-        } else {
         }
       })
     },

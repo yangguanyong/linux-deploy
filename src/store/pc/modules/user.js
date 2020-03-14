@@ -26,7 +26,7 @@ const store = {
       })
     },
     logout ({ commit }) {
-      logout().then(r => {
+      logout().then(() => {
         removeToken()
         commit('SET_TOKEN', '')
         commit('SET_USERINFO', null)

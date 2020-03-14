@@ -42,7 +42,8 @@ export default {
       this.$store.dispatch("logout");
     },
     testOvertimeLogout() {
-      testOvertimeLogout().then(r => {});
+      testOvertimeLogout().then(() => {
+      })
     },
     goSystem() {
       this.$router.push({

@@ -81,7 +81,7 @@ function getFileSize (elInput) {
 }
 
 function getFrameResponseIframeOnload (frame, cb) {
-  frame.onload = (e) => {
+  frame.onload = () => {
     try {
       var text = frame.contentDocument.body.innerText
       if (text !== '') {
@@ -92,7 +92,7 @@ function getFrameResponseIframeOnload (frame, cb) {
       cb('error')
     }
   }
-  frame.onerror = (e) => {
+  frame.onerror = () => {
     cb('error')
   }
 }

@@ -61,14 +61,13 @@ export default {
             this.$message('密码必须一致')
             return
           } else {
-            register(this.formData).then(r => {
+            register(this.formData).then(() => {
               this.$message('注册成功')
               this.$router.push({
                 name: 'Login'
               })
             })
           }
-        } else {
         }
       })
     },

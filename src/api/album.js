@@ -27,7 +27,7 @@ export function getAlbumDetail(params) {
   })
 }
 
-export function deleteAlbum(data) {
+export function deleteAlbum() {
   return request({
     url: '/api/album/deleteAlbum',
     method: 'post'

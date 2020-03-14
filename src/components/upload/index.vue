@@ -123,10 +123,11 @@ export default {
       form.append(this.name, this.file.body)
       const xhr = new XMLHttpRequest()
       const uploaded = () => {
+        var resp = null
         try {
-          var resp = JSON.parse(xhr.responseText)
+          resp = JSON.parse(xhr.responseText)
         } catch (err) {
-          var resp = { code: 'error', message: '' }
+          resp = { code: 'error', message: '' }
         }
         if (resp.code && resp.code === 'error') {
           this.$emit('fail', resp)
@@ -139,10 +140,10 @@ export default {
         }
         this.resetHandle()
       }
-      xhr.onload = (e) => {
+      xhr.onload = () => {
         uploaded()
       }
-      xhr.onerror = (e) => {
+      xhr.onerror = () => {
         uploaded()
       }
       xhr.upload.onprogress = (e) => {

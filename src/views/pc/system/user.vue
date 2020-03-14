@@ -29,7 +29,7 @@ export default {
       changeType({
         id: item.id,
         type: 1
-      }).then(r => {
+      }).then(() => {
         this.$message({
           type: 'success',
           message: '设置成功'

@@ -56,7 +56,7 @@ export default {
     deleteHandle(item) {
       deletePhoto({
         id: item.id
-      }).then(r => {
+      }).then(() => {
         this.$message({
           type: 'success',
           message: '照片删除成功'
@@ -73,7 +73,7 @@ export default {
         }
       })
     },
-    goDetail(item) {
+    goDetail() {
     }
   }
 }

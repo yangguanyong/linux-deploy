@@ -58,7 +58,7 @@ export default {
     deleteHandle(item) {
       deleteAlbum({
         id: item.id
-      }).then(r => {
+      }).then(() => {
         this.$message({
           type: 'success',
           message: '删除成功'

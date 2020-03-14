@@ -23,7 +23,7 @@ export function getPhotoList(data) {
   })
 }
 
-export function changePhotoType(data) {
+export function changePhotoType() {
   return request({
     url: '/api/system/changePhotoType',
     method: 'post'

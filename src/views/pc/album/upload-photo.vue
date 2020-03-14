@@ -56,7 +56,7 @@ export default {
         this.$message('图片路径为必填')
         return
       }
-      addPhoto(this.formData).then(r => {
+      addPhoto(this.formData).then(() => {
         this.$message({
           type: 'success',
           message: '上传成功'

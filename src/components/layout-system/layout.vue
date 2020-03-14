@@ -24,7 +24,7 @@ export default {
       this.$store.dispatch('logout')
     },
     testNoPermisstion() {
-      testNoPermisstion().then(r => {
+      testNoPermisstion().then(() => {
       })
     },
     toSystemUser() {
